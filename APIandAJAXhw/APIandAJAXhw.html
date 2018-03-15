@@ -11,14 +11,14 @@
 
 <!--entertainer button-->
 
-<button data-animal="cat">meow</button>
-<button data-dog="dog">woof</button>
-<button data-bird="bird">chirp</button>
+<button data-entertainment="panda">black&white</button>
+<button data-entertainment="donaldglover">Childish</button>
+<button data-entertainment="puppies">Pups</button>
 <div id="gifs-appear-here">
 </div>
 
 <form id="dog-form">
-        <label for="dog-input">Add your favorite entertainer!</label>
+        <label for="dog-input">Add your favorite gif!</label>
         <input type="text" id="dog-input">
     
         <input id="addDog" type="submit" value="submit">
@@ -30,7 +30,7 @@
 <script type="text/javascript">
  
  $("button").on("click", function() {
-     var dogs = $(this).attr("data-dogs");
+     var dogs = $(this).attr("data-entertainment");
      var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
         dogs + "&api_key=dc6zaTOxFJmzC&limit=10";
 //ajax request
