@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>APIs and Ajax</title>
+</head>
+<body>
+    <div class="container">
+
+<!--entertainer button-->
+
+<button data-animal="cat">meow</button>
+<button data-dog="dog">woof</button>
+<button data-bird="bird">chirp</button>
+<div id="gifs-appear-here">
+</div>
+
+<form id="dog-form">
+        <label for="dog-input">Add your favorite entertainer!</label>
+        <input type="text" id="dog-input">
+    
+        <input id="addDog" type="submit" value="submit">
+       </form>
+    
+       <div id="dogs">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript">
+ 
+ $("button").on("click", function() {
+     var dogs = $(this).attr("data-dogs");
+     var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
+        dogs + "&api_key=dc6zaTOxFJmzC&limit=10";
+//ajax request
+  $.ajax({
+        url: queryURL,
+        method: "GET"
+      })
+      .then(function(response) {
+          console.log(queryURL);
+          console.log(response);
+          var results = response.data;
+          for (var i = 0; i < results.length; i++) {
+                var animalDiv = $("<div>");
+                var p = $("<p>").text("Rating: " + results[i].rating);
+                var dogImage = $("<img>");  dogImage.attr("src", results[i].images.fixed_height.url);
+                dogDiv.append(p);
+                dogDiv.append(dogImage);   
+                $("#gifs-appear-here").prepend(dogDiv);
+          }
+        });
+    });
+  </script>       
+</body>
+</html>
