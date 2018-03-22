@@ -10,12 +10,12 @@
     <div class="container">
 
 <!--entertainer button-->
-
-<button data-entertainment="panda">black&white</button>
+<button data-entertainment="panda">black and white</button>
 <button data-entertainment="donaldglover">Childish</button>
 <button data-entertainment="puppies">Pups</button>
 <div id="gifs-appear-here">
 </div>
+
 
 <form id="dog-form">
         <label for="dog-input">Add your favorite gif!</label>
@@ -28,6 +28,8 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript">
+
+var topics = ["animals"];
  
  $("button").on("click", function() {
      var dogs = $(this).attr("data-entertainment");
